@@ -49,11 +49,18 @@
 }
 
 - (void)startAdvertisingWithEIRData:(NSData *)data {
-    NSLog(@"startAdvertisingWithEIRData:%@", data);
+    NSLog(@"startAdvertisingWithEIRData_XXXX:%@", data);
 
     if (self.peripheralManager.isAdvertising) {
         return;
     }
+    [self.peripheralManager startAdvertising:@{
+                                               CBAdvertisementDataLocalNameKey: @"Sample"
+                                               }];
+
+//    NSDictionary *advertisingData = @{CBAdvertisementDataServiceDataKey:@"Sample"};
+// //     NSDictionary *advertisementData = @{CBAdvertisementDataLocalNameKey: @"Test Device"};
+//     [self.peripheralManager startAdvertising:advertisingData];
 }
 
 - (void)stopAdvertising {

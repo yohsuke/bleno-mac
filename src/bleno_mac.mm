@@ -86,7 +86,10 @@ Napi::Value BlenoMac::StartAdvertisingIBeacon(const Napi::CallbackInfo& info) {
 
 // startAdvertisingWithEIRData(advertisementData, scanData)
 Napi::Value BlenoMac::StartAdvertisingWithEIRData(const Napi::CallbackInfo& info) {
-    NSLog(@"BlenoMac::StartAdvertisingWithEIRData");
+    NSLog(@"BlenoMac::StartAdvertisingWithEIRData_XXX");
+
+	NSData* data = [NSData data];
+    [peripheralManager startAdvertisingWithEIRData:data];
 
     return Napi::Value();
 }
