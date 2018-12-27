@@ -54,13 +54,13 @@
     if (self.peripheralManager.isAdvertising) {
         return;
     }
-    [self.peripheralManager startAdvertising:@{
-                                               CBAdvertisementDataLocalNameKey: @"Sample"
-                                               }];
+//     [self.peripheralManager startAdvertising:@{
+//                                                CBAdvertisementDataLocalNameKey: @"Sample"
+//                                                }];
 
-//    NSDictionary *advertisingData = @{CBAdvertisementDataServiceDataKey:@"Sample"};
-// //     NSDictionary *advertisementData = @{CBAdvertisementDataLocalNameKey: @"Test Device"};
-//     [self.peripheralManager startAdvertising:advertisingData];
+   NSDictionary *advertisingData = @{CBAdvertisementDataServiceDataKey:@"test"};
+//     NSDictionary *advertisementData = @{CBAdvertisementDataLocalNameKey: @"Test Device"};
+    [self.peripheralManager startAdvertising:advertisingData];
 }
 
 - (void)stopAdvertising {
