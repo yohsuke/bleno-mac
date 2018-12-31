@@ -65,7 +65,7 @@
     unsigned char bytes[] = { 0xff, 0xff, 0xff, 0xff };
     NSData *manufactureData = [[NSData alloc] initWithBytes:bytes length:sizeof(bytes)];
     NSDictionary *advertisingData = @{
-                CBAdvertisementDataLocalNameKey : "Sample peripheral",
+                CBAdvertisementDataLocalNameKey:@"Sample peripheral",
                 CBAdvertisementDataManufacturerDataKey:manufactureData
                 };
     [self.peripheralManager startAdvertising:advertisingData];
