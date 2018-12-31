@@ -33,7 +33,7 @@
 #pragma mark - API
 
 - (void)startAdvertising:(nonnull NSString *)name serviceUUIDs:(nonnull NSArray<CBUUID *> *)serviceUUIDs {
-    NSLog(@"startAdvertising:%@ serviceUUIDs:%@", name, serviceUUIDs);
+    NSLog(@"startAdvertisingXX:%@ serviceUUIDs:%@", name, serviceUUIDs);
     if (self.peripheralManager.isAdvertising) {
         return;
     }
@@ -58,8 +58,12 @@
 //                                                CBAdvertisementDataLocalNameKey: @"Sample"
 //                                                }];
 
-   NSDictionary *advertisingData = @{CBAdvertisementDataServiceDataKey:@"test"};
+//    NSDictionary *advertisingData = @{CBAdvertisementDataServiceDataKey:@"test"};
 //     NSDictionary *advertisementData = @{CBAdvertisementDataLocalNameKey: @"Test Device"};
+
+    unsigned char bytes[] = { 0x02, 0x01, 0x06, 0x03, 0x03, 0x6f, 0xfe, 0x0b, 0x16, 0x6f, 0xfe, 0x02, 0x01, 0x23, 0x45, 0x67, 0x89, 0x7f, 0x00 };
+    NSData *data = [NSData dataWithBytes:bytes length:sizeof(bytes)];
+    NSDictionary *advertisingData = @{CBAdvertisementDataManufacturerDataKey:data};
     [self.peripheralManager startAdvertising:advertisingData];
 }
 
